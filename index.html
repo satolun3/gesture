@@ -1,23 +1,51 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <meta charset="UTF-8">
+
 <style>
+
 body {
+
     text-align: center;
-    font-size: 50px;
+
     margin-top: 150px;
+
 }
 
-button {
-    font-size: 40px;
-    padding: 20px 40px;
+/* お題の表示 */
+
+#word {
+
+    font-size: 90px;   /* 文字を大きく */
+
+    font-weight: bold; /* 太字 */
+
+    min-height: 120px; /* お題の長さが変わってもガタつかない */
+
 }
+
+/* ボタン */
+
+button {
+
+    font-size: 28px;   /* 少し小さく */
+
+    padding: 15px 30px;
+
+}
+
 </style>
+
 </head>
+
 <body>
 
 <div id="word">スタートを押してね</div>
+
 <br><br>
 
 <button onclick="nextWord()">次のお題</button>
@@ -104,21 +132,31 @@ let words = [
 function nextWord() {
 
     // 全て出題済みの場合
+
     if (words.length === 0) {
+
         document.getElementById("word").textContent =
+
             "お題がなくなりました";
+
         return;
+
     }
 
     // ランダムなインデックスを取得
+
     const index = Math.floor(Math.random() * words.length);
 
     // お題を表示し、配列から削除
+
     const selectedWord = words.splice(index, 1)[0];
 
     document.getElementById("word").textContent = selectedWord;
+
 }
+
 </script>
 
 </body>
+
 </html>
